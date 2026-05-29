@@ -28,6 +28,8 @@ for file_path in tqdm(files):
 
         venue = info.get("venue", "Unknown")
 
+        match_date = info.get("dates", ["Unknown"])[0]
+
         innings = match.get("innings", [])
 
         for inning in innings:
@@ -62,6 +64,7 @@ for file_path in tqdm(files):
 
                     all_deliveries.append({
                         "venue": venue,
+                        "match_date": match_date,
                         "batting_team": team,
                         "over": over_number,
                         "batter": batter,
